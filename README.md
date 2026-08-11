@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Observatório de Saúde
 
-## Getting Started
+Painel público de dados de **COVID-19**, **dengue**, **zika** e **chikungunya** no Brasil, feito para ser instalado e usado direto do celular (PWA).
 
-First, run the development server:
+## Funcionalidades
+
+- **COVID-19 no Brasil**: totais nacionais (casos, mortes, ativos, recuperados) e gráficos de tendência acumulada, via [disease.sh](https://disease.sh).
+- **Dengue / Zika / Chikungunya por cidade**: casos estimados/confirmados, incidência por 100 mil habitantes, nível de alerta (verde a vermelho) e série semanal, via [InfoDengue](https://info.dengue.mat.br) (Fiocruz), com seletor de capital.
+- **Instalável no celular** (PWA): manifest + service worker, funciona offline com os últimos dados carregados e pode ser adicionado à tela inicial no Android e iOS.
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Stack
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js 16 (App Router, TypeScript)
+- Tailwind CSS 4
+- Recharts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Fontes de dados
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- COVID-19: [disease.sh](https://disease.sh) (API pública, sem necessidade de chave)
+- Dengue / Zika / Chikungunya: [InfoDengue](https://info.dengue.mat.br) — Fiocruz/UFMG
 
-## Deploy on Vercel
+Este painel tem fins informativos e não substitui orientação médica ou dos órgãos oficiais de saúde.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto é compatível com deploy direto na [Vercel](https://vercel.com) (sem variáveis de ambiente obrigatórias).
