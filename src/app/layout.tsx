@@ -1,43 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { RegisterServiceWorker } from "@/components/RegisterServiceWorker";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Observatório de Saúde",
+  title: "Saúde Observada",
   description:
-    "Painel público com dados de COVID-19, dengue, zika e chikungunya no Brasil, atualizado a partir de fontes oficiais.",
-  applicationName: "Observatório de Saúde",
+    "Painel público com indicadores de dengue, COVID-19, tuberculose, HIV/Aids, sífilis, diabetes, hipertensão, obesidade, saúde mental e câncer no Brasil, por estado, município, ano e mês.",
+  applicationName: "Saúde Observada",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Observatório de Saúde",
+    title: "Saúde Observada",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#256abf",
+  themeColor: "#15803d",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="pt-BR" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <RegisterServiceWorker />
         {children}
